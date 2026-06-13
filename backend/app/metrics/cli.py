@@ -5,19 +5,13 @@ Run after ingest:
 """
 
 import asyncio
-import json
 import logging
 import sys
 from pathlib import Path
 
-from app.api.routes import (
-    _build_category_view,
-    _build_leaderboard,
-)
-from app.api.schemas import MetricsResponse, OverallView
+from app.api.routes import build_metrics_response
 from app.database import async_session_factory, engine
 from app.metrics.calculator import MetricsCalculator
-from app.metrics.definitions import CATEGORY_DEFINITIONS
 from app.metrics.scorer import MetricsScorer
 
 logging.basicConfig(
@@ -43,26 +37,7 @@ async def compute_and_save() -> None:
 
     logger.info("Scoring %d contributors...", len(raw_metrics))
     scorer = MetricsScorer(raw_metrics)
-
-    quantity = _build_category_view(scorer, "quantity")
-    quality = _build_category_view(scorer, "quality")
-    collaboration = _build_category_view(scorer, "collaboration")
-
-    overall_meta = CATEGORY_DEFINITIONS["overall"]
-    overall = OverallView(
-        name=overall_meta["name"],
-        definition=overall_meta["definition"],
-        interpretation=overall_meta["interpretation"],
-        leaderboard=_build_leaderboard(scorer, scorer.get_overall_score),
-        categories=[quantity, quality, collaboration],
-    )
-
-    response = MetricsResponse(
-        overall=overall,
-        quantity=quantity,
-        quality=quality,
-        collaboration=collaboration,
-    )
+    response = build_metrics_response(scorer)
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(response.model_dump_json(indent=2), encoding="utf-8")

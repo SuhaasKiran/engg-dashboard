@@ -3,6 +3,12 @@ from statistics import mean
 from app.metrics.definitions import CATEGORY_DEFINITIONS, METRIC_DEFINITIONS, METRICS_BY_KEY
 
 NEUTRAL_SCORE = 0.5
+SCORE_SCALE = 100
+
+
+def to_display_score(normalized: float) -> float:
+    """Convert normalized 0-1 score to 0-100 display scale."""
+    return round(normalized * SCORE_SCALE, 2)
 
 
 def normalize_metric(
@@ -62,6 +68,33 @@ class MetricsScorer:
     def get_normalized_metric(self, metric_key: str, login: str) -> float:
         return self._normalized_by_metric.get(metric_key, {}).get(login, NEUTRAL_SCORE)
 
+    def get_raw_metric(self, metric_key: str, login: str) -> float | None:
+        value = self._raw.get(login, {}).get(metric_key)
+        if value is None:
+            return None
+        return float(value)
+
+    def get_average_raw_metric(self, metric_key: str) -> float:
+        values = [
+            v
+            for login in self._contributors
+            if (v := self.get_raw_metric(metric_key, login)) is not None
+        ]
+        if not values:
+            return 0.0
+        return mean(values)
+
+    def get_top_contributors_raw(
+        self, metric_key: str, higher_is_better: bool, limit: int = 5
+    ) -> list[tuple[str, float]]:
+        ranked = [
+            (login, self.get_raw_metric(metric_key, login))
+            for login in self._contributors
+            if self.get_raw_metric(metric_key, login) is not None
+        ]
+        ranked.sort(key=lambda item: item[1], reverse=higher_is_better)
+        return [(login, val) for login, val in ranked[:limit] if val is not None]
+
     def get_category_score(self, category: str, login: str) -> float:
         keys = [m.key for m in METRIC_DEFINITIONS if m.category == category]
         if not keys:
@@ -78,6 +111,9 @@ class MetricsScorer:
         if not self._contributors:
             return NEUTRAL_SCORE
         return mean(score_fn(login) for login in self._contributors)
+
+    def get_average_display_score(self, score_fn) -> float:
+        return to_display_score(self.get_average_score(score_fn))
 
     def get_top_contributors(
         self, score_fn, limit: int = 5

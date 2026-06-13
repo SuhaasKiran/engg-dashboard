@@ -28,8 +28,7 @@ function App() {
             Engineering Impact
           </h1>
           <p className="mt-1 max-w-lg text-xs leading-relaxed text-muted-foreground">
-            Normalized contributor scores — 0.5 represents the team average across all
-            categories.
+            Normalized contributor scores.
           </p>
         </header>
 
