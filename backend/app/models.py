@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import DateTime, ForeignKey, Integer, String, Text, func
+from sqlalchemy import BigInteger, DateTime, ForeignKey, Integer, String, Text, func
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
@@ -52,7 +52,7 @@ class PrReviewComment(Base):
     __tablename__ = "pr_review_comments"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
-    github_id: Mapped[int] = mapped_column(Integer, unique=True, nullable=False)
+    github_id: Mapped[int] = mapped_column(BigInteger, unique=True, nullable=False)
     pr_number: Mapped[int] = mapped_column(Integer, index=True, nullable=False)
     commenter_login: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
     pr_author_login: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
@@ -80,7 +80,7 @@ class IssueComment(Base):
     __tablename__ = "issue_comments"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
-    github_id: Mapped[int] = mapped_column(Integer, unique=True, nullable=False)
+    github_id: Mapped[int] = mapped_column(BigInteger, unique=True, nullable=False)
     issue_number: Mapped[int] = mapped_column(Integer, index=True, nullable=False)
     commenter_login: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
     issue_author_login: Mapped[str] = mapped_column(String(255), nullable=False, index=True)

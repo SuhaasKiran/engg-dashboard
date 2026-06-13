@@ -16,7 +16,7 @@ alwaysApply: true
 
 ## Domain: Engineering Impact Dashboard
 
-- Ingest GitHub data from the PostHog repo for the last **120 days** (per `plans/metric_definitions_v1.md`).
+- Ingest GitHub data from the PostHog repo for the last **90 days** (per `plans/metric_definitions_v1.md`).
 - Implement metrics per `plans/metric_definitions_v1.md`; treat that file as the source of truth for definitions and interpretations.
 - Impact scoring should be thoughtful and composite — do not reduce "impact" to raw lines of code, commit counts, or files changed alone.
 - Normalize metric scores before combining categories; the average contributor should score **0.5** on combined/normalized metrics.

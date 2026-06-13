@@ -1,17 +1,20 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.ext.asyncio import AsyncSession
+import json
+from pathlib import Path
+
+from fastapi import APIRouter, HTTPException
+from fastapi.responses import JSONResponse
 
 from app.api.schemas import CategoryView, LeaderboardEntry, MetricsResponse, OverallView, SubMetricView
-from app.database import get_session
-from app.metrics.calculator import MetricsCalculator
 from app.metrics.definitions import CATEGORY_DEFINITIONS, METRIC_DEFINITIONS
 from app.metrics.scorer import MetricsScorer
 
 router = APIRouter()
 
+METRICS_FILE = Path(__file__).parent.parent.parent / "data" / "metrics.json"
+
 
 def _build_leaderboard(
-    scorer: MetricsScorer, score_fn, raw_fn=None
+    scorer: MetricsScorer, score_fn
 ) -> list[LeaderboardEntry]:
     top = scorer.get_top_contributors(score_fn, limit=5)
     entries = [
@@ -68,34 +71,13 @@ def _build_category_view(scorer: MetricsScorer, category: str) -> CategoryView:
 
 
 @router.get("/metrics", response_model=MetricsResponse)
-async def get_metrics(session: AsyncSession = Depends(get_session)) -> MetricsResponse:
-    calculator = MetricsCalculator(session)
-    raw_metrics = await calculator.compute_raw_metrics()
-
-    if not raw_metrics:
+async def get_metrics() -> JSONResponse:
+    if not METRICS_FILE.exists():
         raise HTTPException(
             status_code=503,
-            detail="No ingested data found. Run `python -m app.ingest.cli` first.",
+            detail=(
+                "Metrics file not found. "
+                "Run `python -m app.ingest.cli` then `python -m app.metrics.cli` first."
+            ),
         )
-
-    scorer = MetricsScorer(raw_metrics)
-
-    quantity = _build_category_view(scorer, "quantity")
-    quality = _build_category_view(scorer, "quality")
-    collaboration = _build_category_view(scorer, "collaboration")
-
-    overall_meta = CATEGORY_DEFINITIONS["overall"]
-    overall = OverallView(
-        name=overall_meta["name"],
-        definition=overall_meta["definition"],
-        interpretation=overall_meta["interpretation"],
-        leaderboard=_build_leaderboard(scorer, scorer.get_overall_score),
-        categories=[quantity, quality, collaboration],
-    )
-
-    return MetricsResponse(
-        overall=overall,
-        quantity=quantity,
-        quality=quality,
-        collaboration=collaboration,
-    )
+    return JSONResponse(content=json.loads(METRICS_FILE.read_text(encoding="utf-8")))

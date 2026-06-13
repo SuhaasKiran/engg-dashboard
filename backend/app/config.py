@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     github_owner: str = "PostHog"
     github_repo: str = "posthog"
     database_url: str = "postgresql+asyncpg://weave:weave@localhost:5432/weave"
-    measurement_days: int = 120
+    measurement_days: int = 90
     default_branch: str = "main"
     cors_origins: str = "http://localhost:5173"
 
@@ -24,7 +24,7 @@ class Settings(BaseSettings):
 
     @property
     def repo_full_name(self) -> str:
-        return f"{self.github_owner}/{self.github_repo}"
-
+        # return f"{self.github_owner}/{self.github_repo}"
+        return self.github_repo
 
 settings = Settings()

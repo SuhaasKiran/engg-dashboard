@@ -1,4 +1,4 @@
-Metrics Definition (based on data from last 120 days)
+Metrics Definition (based on data from last 90 days)
 
 Category 1: Quantity:
 

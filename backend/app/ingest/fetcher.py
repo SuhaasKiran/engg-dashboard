@@ -48,6 +48,7 @@ query($owner: String!, $repo: String!, $cursor: String) {
     issues(first: 100, after: $cursor, orderBy: {field: CREATED_AT, direction: DESC}) {
       pageInfo { hasNextPage endCursor }
       nodes {
+        __typename
         number
         title
         body
@@ -57,7 +58,6 @@ query($owner: String!, $repo: String!, $cursor: String) {
         author { login }
         labels(first: 20) { nodes { name } }
         assignees(first: 10) { nodes { login } }
-        pullRequest { number }
       }
     }
   }
@@ -188,7 +188,7 @@ class GitHubFetcher:
             nodes = issue_connection["nodes"]
 
             for node in nodes:
-                if node.get("pullRequest"):
+                if node.get("__typename") == "PullRequest":
                     continue
 
                 created_at = parse_github_datetime(node["createdAt"])

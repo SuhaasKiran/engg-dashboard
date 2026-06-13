@@ -1,0 +1,1297 @@
+{
+  "overall": {
+    "name": "Overall",
+    "definition": "Equal-weighted combination of normalized Quantity, Quality, and Collaboration scores.",
+    "interpretation": "Composite impact score where 0.5 represents an average contributor across all categories.",
+    "leaderboard": [
+      {
+        "rank": 1,
+        "contributor": "andrewm4894",
+        "score": 0.8979,
+        "is_average": false
+      },
+      {
+        "rank": 2,
+        "contributor": "haacked",
+        "score": 0.8777,
+        "is_average": false
+      },
+      {
+        "rank": 3,
+        "contributor": "MattPua",
+        "score": 0.843,
+        "is_average": false
+      },
+      {
+        "rank": 4,
+        "contributor": "MattBro",
+        "score": 0.8377,
+        "is_average": false
+      },
+      {
+        "rank": 5,
+        "contributor": "pauldambra",
+        "score": 0.8334,
+        "is_average": false
+      },
+      {
+        "rank": null,
+        "contributor": "Average",
+        "score": 0.2137,
+        "is_average": true
+      }
+    ],
+    "categories": [
+      {
+        "key": "quantity",
+        "name": "Quantity",
+        "definition": "Volume of code shipped, issues raised, and pull requests created.",
+        "interpretation": "Higher scores reflect greater output and participation in the measurement window.",
+        "score": null,
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "MattBro",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "MattPua",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "adamleithp",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "christiaan-ph",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "dmarticus",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.1535,
+            "is_average": true
+          }
+        ],
+        "sub_metrics": [
+          {
+            "key": "merged_pr_lines_changed",
+            "name": "Merged PR lines changed",
+            "definition": "Sum of additions + deletions across merged pull requests authored by the contributor in the measurement window.",
+            "interpretation": "Shows shipping volume through work that landed on the default branch. Higher values indicate more code delivered via merged PRs.",
+            "leaderboard": [
+              {
+                "rank": 1,
+                "contributor": "DanielVisca",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 2,
+                "contributor": "Gilbert09",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 3,
+                "contributor": "MarconLP",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 4,
+                "contributor": "MattBro",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 5,
+                "contributor": "MattPua",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": null,
+                "contributor": "Average",
+                "score": 0.0768,
+                "is_average": true
+              }
+            ]
+          },
+          {
+            "key": "issues_opened",
+            "name": "Issues opened",
+            "definition": "Number of issues opened by a contributor in the measurement window.",
+            "interpretation": "Measures initiative and engagement in identifying problems or proposing improvements.",
+            "leaderboard": [
+              {
+                "rank": 1,
+                "contributor": "GauthierPLM",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 2,
+                "contributor": "HaynesPostHog",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 3,
+                "contributor": "JakobStadlhuber",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 4,
+                "contributor": "MattBro",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 5,
+                "contributor": "MattPua",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": null,
+                "contributor": "Average",
+                "score": 0.2232,
+                "is_average": true
+              }
+            ]
+          },
+          {
+            "key": "prs_created",
+            "name": "PRs created",
+            "definition": "Total number of pull requests created by the contributor in the measurement window.",
+            "interpretation": "Tracks active contribution to the codebase. More PRs show consistent participation.",
+            "leaderboard": [
+              {
+                "rank": 1,
+                "contributor": "DanielVisca",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 2,
+                "contributor": "Gilbert09",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 3,
+                "contributor": "MarconLP",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 4,
+                "contributor": "MattBro",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 5,
+                "contributor": "MattPua",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": null,
+                "contributor": "Average",
+                "score": 0.1604,
+                "is_average": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "quality",
+        "name": "Quality",
+        "definition": "Stability and durability of merged work, bug follow-ups, and review acceptance.",
+        "interpretation": "Higher scores reflect durable, low-revert, low-bug work accepted on first pass.",
+        "score": null,
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "DanielVisca",
+            "score": 0.7501,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "Gilbert09",
+            "score": 0.7501,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "MarconLP",
+            "score": 0.7501,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "MattBro",
+            "score": 0.7501,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "MattPua",
+            "score": 0.7501,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.3043,
+            "is_average": true
+          }
+        ],
+        "sub_metrics": [
+          {
+            "key": "reverted_merged_pr_rate",
+            "name": "Reverted merged PR rate",
+            "definition": "Share of the contributor's merged PRs later undone by a merged revert PR referencing the original PR number.",
+            "interpretation": "Lower is better. Measures how often shipped work was explicitly rolled back.",
+            "leaderboard": [
+              {
+                "rank": 1,
+                "contributor": "15MariamS",
+                "score": 0.5,
+                "is_average": false
+              },
+              {
+                "rank": 2,
+                "contributor": "1hachem",
+                "score": 0.5,
+                "is_average": false
+              },
+              {
+                "rank": 3,
+                "contributor": "304",
+                "score": 0.5,
+                "is_average": false
+              },
+              {
+                "rank": 4,
+                "contributor": "Akash504-ai",
+                "score": 0.5,
+                "is_average": false
+              },
+              {
+                "rank": 5,
+                "contributor": "Aksharma127",
+                "score": 0.5,
+                "is_average": false
+              },
+              {
+                "rank": null,
+                "contributor": "Average",
+                "score": 0.5,
+                "is_average": true
+              }
+            ]
+          },
+          {
+            "key": "pr_durability_rate",
+            "name": "PR durability rate",
+            "definition": "Percentage of merged PRs with no other merged PR within 14 days touching any of the same files.",
+            "interpretation": "High durability suggests lasting impact; low durability may indicate quick follow-up rework.",
+            "leaderboard": [
+              {
+                "rank": 1,
+                "contributor": "DanielVisca",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 2,
+                "contributor": "Gilbert09",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 3,
+                "contributor": "MarconLP",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 4,
+                "contributor": "MattBro",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 5,
+                "contributor": "MattPua",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": null,
+                "contributor": "Average",
+                "score": 0.0979,
+                "is_average": true
+              }
+            ]
+          },
+          {
+            "key": "post_merge_bug_issue_rate",
+            "name": "Post-merge bug issue rate",
+            "definition": "Bug-labeled issues opened after merge that reference the contributor's merged PRs, divided by total merged PRs.",
+            "interpretation": "Lower is better. Ratio of regressions tied to shipped PRs.",
+            "leaderboard": [
+              {
+                "rank": 1,
+                "contributor": "15MariamS",
+                "score": 0.5004,
+                "is_average": false
+              },
+              {
+                "rank": 2,
+                "contributor": "1hachem",
+                "score": 0.5004,
+                "is_average": false
+              },
+              {
+                "rank": 3,
+                "contributor": "304",
+                "score": 0.5004,
+                "is_average": false
+              },
+              {
+                "rank": 4,
+                "contributor": "Akash504-ai",
+                "score": 0.5004,
+                "is_average": false
+              },
+              {
+                "rank": 5,
+                "contributor": "Aksharma127",
+                "score": 0.5004,
+                "is_average": false
+              },
+              {
+                "rank": null,
+                "contributor": "Average",
+                "score": 0.5,
+                "is_average": true
+              }
+            ]
+          },
+          {
+            "key": "pr_acceptance_rate",
+            "name": "PR acceptance rate",
+            "definition": "Percentage of merged PRs accepted without any CHANGES_REQUESTED review before merge.",
+            "interpretation": "Higher rates show PRs align with standards on first pass.",
+            "leaderboard": [
+              {
+                "rank": 1,
+                "contributor": "DanielVisca",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 2,
+                "contributor": "Gilbert09",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 3,
+                "contributor": "MarconLP",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 4,
+                "contributor": "MattBro",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 5,
+                "contributor": "MattPua",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": null,
+                "contributor": "Average",
+                "score": 0.1193,
+                "is_average": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "collaboration",
+        "name": "Collaboration",
+        "definition": "Reviews, issue resolution, peer comments, and review responsiveness.",
+        "interpretation": "Higher scores reflect active mentorship, follow-through, and timely review loops.",
+        "score": null,
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "haacked",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "andrewm4894",
+            "score": 0.9879,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "danielcarletti",
+            "score": 0.9136,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "arthurdedeus",
+            "score": 0.8005,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "MattPua",
+            "score": 0.7788,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.1834,
+            "is_average": true
+          }
+        ],
+        "sub_metrics": [
+          {
+            "key": "code_reviews",
+            "name": "Code reviews",
+            "definition": "Count of code reviews given by the contributor on other people's PRs.",
+            "interpretation": "Measures mentorship and knowledge sharing through review participation.",
+            "leaderboard": [
+              {
+                "rank": 1,
+                "contributor": "Gilbert09",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 2,
+                "contributor": "MarconLP",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 3,
+                "contributor": "MattPua",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 4,
+                "contributor": "Piccirello",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 5,
+                "contributor": "TueHaulund",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": null,
+                "contributor": "Average",
+                "score": 0.1082,
+                "is_average": true
+              }
+            ]
+          },
+          {
+            "key": "issues_closed",
+            "name": "Issues closed",
+            "definition": "Issues closed via the contributor's merged PRs or directly resolved by the contributor.",
+            "interpretation": "Shows follow-through and commitment to unblocking the team.",
+            "leaderboard": [
+              {
+                "rank": 1,
+                "contributor": "MattBro",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 2,
+                "contributor": "MattPua",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 3,
+                "contributor": "VojtechBartos",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 4,
+                "contributor": "andrewjmcgehee",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 5,
+                "contributor": "andrewm4894",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": null,
+                "contributor": "Average",
+                "score": 0.0245,
+                "is_average": true
+              }
+            ]
+          },
+          {
+            "key": "peer_comment_volume",
+            "name": "Peer comment volume",
+            "definition": "Comments left by the contributor on other people's PRs and issues.",
+            "interpretation": "Indicates active participation in peer feedback loops.",
+            "leaderboard": [
+              {
+                "rank": 1,
+                "contributor": "Copilot",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 2,
+                "contributor": "Gilbert09",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 3,
+                "contributor": "MattBro",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 4,
+                "contributor": "MattPua",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 5,
+                "contributor": "a-lider",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": null,
+                "contributor": "Average",
+                "score": 0.1059,
+                "is_average": true
+              }
+            ]
+          },
+          {
+            "key": "review_responsiveness",
+            "name": "Review responsiveness",
+            "definition": "Median hours from first review feedback on the contributor's PR to their next comment on that PR.",
+            "interpretation": "Lower is better. Measures responsiveness to code review on own PRs.",
+            "leaderboard": [
+              {
+                "rank": 1,
+                "contributor": "Akash504-ai",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 2,
+                "contributor": "danielcarletti",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 3,
+                "contributor": "fivestarspicy",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 4,
+                "contributor": "fuziontech",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": 5,
+                "contributor": "haacked",
+                "score": 1.0,
+                "is_average": false
+              },
+              {
+                "rank": null,
+                "contributor": "Average",
+                "score": 0.4949,
+                "is_average": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "quantity": {
+    "key": "quantity",
+    "name": "Quantity",
+    "definition": "Volume of code shipped, issues raised, and pull requests created.",
+    "interpretation": "Higher scores reflect greater output and participation in the measurement window.",
+    "score": null,
+    "leaderboard": [
+      {
+        "rank": 1,
+        "contributor": "MattBro",
+        "score": 1.0,
+        "is_average": false
+      },
+      {
+        "rank": 2,
+        "contributor": "MattPua",
+        "score": 1.0,
+        "is_average": false
+      },
+      {
+        "rank": 3,
+        "contributor": "adamleithp",
+        "score": 1.0,
+        "is_average": false
+      },
+      {
+        "rank": 4,
+        "contributor": "christiaan-ph",
+        "score": 1.0,
+        "is_average": false
+      },
+      {
+        "rank": 5,
+        "contributor": "dmarticus",
+        "score": 1.0,
+        "is_average": false
+      },
+      {
+        "rank": null,
+        "contributor": "Average",
+        "score": 0.1535,
+        "is_average": true
+      }
+    ],
+    "sub_metrics": [
+      {
+        "key": "merged_pr_lines_changed",
+        "name": "Merged PR lines changed",
+        "definition": "Sum of additions + deletions across merged pull requests authored by the contributor in the measurement window.",
+        "interpretation": "Shows shipping volume through work that landed on the default branch. Higher values indicate more code delivered via merged PRs.",
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "DanielVisca",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "Gilbert09",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "MarconLP",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "MattBro",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "MattPua",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.0768,
+            "is_average": true
+          }
+        ]
+      },
+      {
+        "key": "issues_opened",
+        "name": "Issues opened",
+        "definition": "Number of issues opened by a contributor in the measurement window.",
+        "interpretation": "Measures initiative and engagement in identifying problems or proposing improvements.",
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "GauthierPLM",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "HaynesPostHog",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "JakobStadlhuber",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "MattBro",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "MattPua",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.2232,
+            "is_average": true
+          }
+        ]
+      },
+      {
+        "key": "prs_created",
+        "name": "PRs created",
+        "definition": "Total number of pull requests created by the contributor in the measurement window.",
+        "interpretation": "Tracks active contribution to the codebase. More PRs show consistent participation.",
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "DanielVisca",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "Gilbert09",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "MarconLP",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "MattBro",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "MattPua",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.1604,
+            "is_average": true
+          }
+        ]
+      }
+    ]
+  },
+  "quality": {
+    "key": "quality",
+    "name": "Quality",
+    "definition": "Stability and durability of merged work, bug follow-ups, and review acceptance.",
+    "interpretation": "Higher scores reflect durable, low-revert, low-bug work accepted on first pass.",
+    "score": null,
+    "leaderboard": [
+      {
+        "rank": 1,
+        "contributor": "DanielVisca",
+        "score": 0.7501,
+        "is_average": false
+      },
+      {
+        "rank": 2,
+        "contributor": "Gilbert09",
+        "score": 0.7501,
+        "is_average": false
+      },
+      {
+        "rank": 3,
+        "contributor": "MarconLP",
+        "score": 0.7501,
+        "is_average": false
+      },
+      {
+        "rank": 4,
+        "contributor": "MattBro",
+        "score": 0.7501,
+        "is_average": false
+      },
+      {
+        "rank": 5,
+        "contributor": "MattPua",
+        "score": 0.7501,
+        "is_average": false
+      },
+      {
+        "rank": null,
+        "contributor": "Average",
+        "score": 0.3043,
+        "is_average": true
+      }
+    ],
+    "sub_metrics": [
+      {
+        "key": "reverted_merged_pr_rate",
+        "name": "Reverted merged PR rate",
+        "definition": "Share of the contributor's merged PRs later undone by a merged revert PR referencing the original PR number.",
+        "interpretation": "Lower is better. Measures how often shipped work was explicitly rolled back.",
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "15MariamS",
+            "score": 0.5,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "1hachem",
+            "score": 0.5,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "304",
+            "score": 0.5,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "Akash504-ai",
+            "score": 0.5,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "Aksharma127",
+            "score": 0.5,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.5,
+            "is_average": true
+          }
+        ]
+      },
+      {
+        "key": "pr_durability_rate",
+        "name": "PR durability rate",
+        "definition": "Percentage of merged PRs with no other merged PR within 14 days touching any of the same files.",
+        "interpretation": "High durability suggests lasting impact; low durability may indicate quick follow-up rework.",
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "DanielVisca",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "Gilbert09",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "MarconLP",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "MattBro",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "MattPua",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.0979,
+            "is_average": true
+          }
+        ]
+      },
+      {
+        "key": "post_merge_bug_issue_rate",
+        "name": "Post-merge bug issue rate",
+        "definition": "Bug-labeled issues opened after merge that reference the contributor's merged PRs, divided by total merged PRs.",
+        "interpretation": "Lower is better. Ratio of regressions tied to shipped PRs.",
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "15MariamS",
+            "score": 0.5004,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "1hachem",
+            "score": 0.5004,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "304",
+            "score": 0.5004,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "Akash504-ai",
+            "score": 0.5004,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "Aksharma127",
+            "score": 0.5004,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.5,
+            "is_average": true
+          }
+        ]
+      },
+      {
+        "key": "pr_acceptance_rate",
+        "name": "PR acceptance rate",
+        "definition": "Percentage of merged PRs accepted without any CHANGES_REQUESTED review before merge.",
+        "interpretation": "Higher rates show PRs align with standards on first pass.",
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "DanielVisca",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "Gilbert09",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "MarconLP",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "MattBro",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "MattPua",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.1193,
+            "is_average": true
+          }
+        ]
+      }
+    ]
+  },
+  "collaboration": {
+    "key": "collaboration",
+    "name": "Collaboration",
+    "definition": "Reviews, issue resolution, peer comments, and review responsiveness.",
+    "interpretation": "Higher scores reflect active mentorship, follow-through, and timely review loops.",
+    "score": null,
+    "leaderboard": [
+      {
+        "rank": 1,
+        "contributor": "haacked",
+        "score": 1.0,
+        "is_average": false
+      },
+      {
+        "rank": 2,
+        "contributor": "andrewm4894",
+        "score": 0.9879,
+        "is_average": false
+      },
+      {
+        "rank": 3,
+        "contributor": "danielcarletti",
+        "score": 0.9136,
+        "is_average": false
+      },
+      {
+        "rank": 4,
+        "contributor": "arthurdedeus",
+        "score": 0.8005,
+        "is_average": false
+      },
+      {
+        "rank": 5,
+        "contributor": "MattPua",
+        "score": 0.7788,
+        "is_average": false
+      },
+      {
+        "rank": null,
+        "contributor": "Average",
+        "score": 0.1834,
+        "is_average": true
+      }
+    ],
+    "sub_metrics": [
+      {
+        "key": "code_reviews",
+        "name": "Code reviews",
+        "definition": "Count of code reviews given by the contributor on other people's PRs.",
+        "interpretation": "Measures mentorship and knowledge sharing through review participation.",
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "Gilbert09",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "MarconLP",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "MattPua",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "Piccirello",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "TueHaulund",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.1082,
+            "is_average": true
+          }
+        ]
+      },
+      {
+        "key": "issues_closed",
+        "name": "Issues closed",
+        "definition": "Issues closed via the contributor's merged PRs or directly resolved by the contributor.",
+        "interpretation": "Shows follow-through and commitment to unblocking the team.",
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "MattBro",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "MattPua",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "VojtechBartos",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "andrewjmcgehee",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "andrewm4894",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.0245,
+            "is_average": true
+          }
+        ]
+      },
+      {
+        "key": "peer_comment_volume",
+        "name": "Peer comment volume",
+        "definition": "Comments left by the contributor on other people's PRs and issues.",
+        "interpretation": "Indicates active participation in peer feedback loops.",
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "Copilot",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "Gilbert09",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "MattBro",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "MattPua",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "a-lider",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.1059,
+            "is_average": true
+          }
+        ]
+      },
+      {
+        "key": "review_responsiveness",
+        "name": "Review responsiveness",
+        "definition": "Median hours from first review feedback on the contributor's PR to their next comment on that PR.",
+        "interpretation": "Lower is better. Measures responsiveness to code review on own PRs.",
+        "leaderboard": [
+          {
+            "rank": 1,
+            "contributor": "Akash504-ai",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 2,
+            "contributor": "danielcarletti",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 3,
+            "contributor": "fivestarspicy",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 4,
+            "contributor": "fuziontech",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": 5,
+            "contributor": "haacked",
+            "score": 1.0,
+            "is_average": false
+          },
+          {
+            "rank": null,
+            "contributor": "Average",
+            "score": 0.4949,
+            "is_average": true
+          }
+        ]
+      }
+    ]
+  }
+}

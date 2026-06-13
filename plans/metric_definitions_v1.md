@@ -1,4 +1,4 @@
-Metrics Definition (use the data from the last 120 days)
+Metrics Definition (use the data from the last 90 days)
 
 All metrics are designed for **GitHub API-only ingestion** (batched REST/GraphQL → Postgres → compute). Avoid per-commit API calls.
 
