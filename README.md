@@ -214,6 +214,4 @@ python -m app.metrics.cli     # re-compute scores
 
 ### Public
 
-**Dashboard URL:** https://weave-impact-dashboard.up.railway.app
-
-*(Replace with actual deployment URL once hosted on Railway.)*
+**Dashboard URL:** https://engg-dashboard.vercel.app/
