@@ -1,0 +1,39 @@
+---
+description: Frontend Engineering Standards
+globs: ["frontend/**/*.{ts,tsx,css}"]
+alwaysApply: true
+---
+
+# Frontend Engineering Rules
+
+## Tools and Frameworks
+
+- React 19, TypeScript, Vite, TanStack Query, Tailwind CSS
+- Single-page dashboard only — no routing beyond the main view
+
+## Core Principles
+
+- Prioritize clarity for a busy engineering leader: scores must be understandable at a glance.
+- Every score shown in the UI must include its definition and interpretation (from the API or shared types).
+- Prefer a working, readable MVP over polish; fit the entire dashboard on one laptop screen without scrolling the page.
+
+## Dashboard Layout
+
+- Page title at the top.
+- Four tabs: **Overall** (weighted combination of category scores), **Quantity**, **Quality**, **Collaboration**.
+- Each tab contains:
+  - A brief category description (definition + how to read the score).
+  - A leaderboard: top 5 contributors for that view, plus one **Average** row at the bottom.
+  - A breakdown section: each sub-metric with its own description and mini-leaderboard (top 5 + average).
+
+## Data Fetching and States
+
+- Use TanStack Query for all server data.
+- Show a loading state while metrics are fetching.
+- Show a clear, actionable error message when loading fails (do not fail silently).
+
+## Code Quality
+
+- Use TypeScript strictly; type API responses and component props.
+- Keep components small and focused; match existing patterns before adding abstractions.
+- Use Tailwind for styling; keep layout compact for the single-page constraint.

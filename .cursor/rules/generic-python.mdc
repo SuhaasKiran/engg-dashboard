@@ -1,0 +1,132 @@
+---
+description: Backend Engineering Standards
+globs: ["**/*.py"]
+alwaysApply: true
+---
+
+# Backend Engineering Rules
+
+## Tools and Frameworks
+
+- Python backend
+- FastAPI + uvicorn for API endpoints and routing
+- Postgres database for storing data
+- Railway for deployment (should also support local execution)
+- GitHub REST/GraphQL API for PostHog repository data (`GITHUB_TOKEN` via environment variable)
+
+## Domain: Engineering Impact Dashboard
+
+- Ingest GitHub data from the PostHog repo for the last **120 days** (per `plans/metric_definitions_v1.md`).
+- Implement metrics per `plans/metric_definitions_v1.md`; treat that file as the source of truth for definitions and interpretations.
+- Impact scoring should be thoughtful and composite — do not reduce "impact" to raw lines of code, commit counts, or files changed alone.
+- Normalize metric scores before combining categories; the average contributor should score **0.5** on combined/normalized metrics.
+- API responses must expose enough structure for the frontend: category and sub-metric scores, definitions, interpretations, top-5 leaderboards, and an average row per view.
+- Cache or persist ingested data in Postgres so dashboard loads stay fast (target **<10s** end-to-end).
+
+## GitHub Data Ingestion
+
+- Decouple ingestion from the dashboard API: run GitHub fetching as a one-time or background ingest job (CLI/script); the dashboard API reads **only from Postgres**, never live GitHub on page load.
+- Use **local git** (repo clone) for commit-level metrics (line changes, reverts, effective line retention); use GitHub REST/GraphQL for PRs, issues, reviews, and comments.
+- Batch and paginate all GitHub calls; prefer GraphQL to avoid N+1 REST requests per PR or commit.
+- Store raw fetched entities (commits metadata, PRs, issues, reviews, comments) in Postgres before computing scores; recompute metrics from DB, not live GitHub.
+- Respect rate limits: track `X-RateLimit-Remaining`, retry with exponential backoff on 403/429, log quota usage; fail ingest clearly rather than returning silently partial data.
+- First ingest may take minutes; dashboard reads must stay fast via cached/computed results.
+- If a metric exceeds the time budget, ship a documented approximation rather than blocking the dashboard. Highest-cost metrics: **Effective Code Line Changes** and **Code line changes** (use local git); **Issue rate** and **PR acceptance rate** need per-PR/issue linking (batch via GraphQL where possible).
+
+## Core Principles
+
+- Important: Do NOT focus heavily on production-readiness: focus on simplicity, correctness and working MVP.
+- Write good-quality code that is simple, readable, maintainable, and testable.
+- Prioritize clarity and correctness over cleverness.
+- Prefer simple solutions unless additional complexity provides clear value. Do not add unnecessary logic/code.
+- Follow existing project patterns before introducing new abstractions.
+
+## Architecture
+
+- Keep business logic, API handlers, database access, and integrations separated.
+- Apply single responsibility and separation of concerns.
+- Prefer composition over inheritance.
+- Design components for reuse and future extension.
+- Use dependency injection for external services and infrastructure dependencies.
+
+## Code Quality
+
+- Use type hints everywhere.
+- Use descriptive names for functions, variables, classes, and models.
+- Keep functions small and focused.
+- Avoid duplicated logic; extract reusable utilities when appropriate.
+- Prefer explicit code over implicit behavior.
+- Avoid premature abstraction and over-engineering.
+
+## Validation
+
+- Validate all external inputs at API boundaries.
+- Use Pydantic models for request, response, and configuration schemas.
+- Fail fast on invalid data.
+
+## Error Handling
+
+- Never swallow exceptions.
+- Catch only exceptions that can be meaningfully handled.
+- Use specific exception types.
+- Return clear, actionable error responses.
+- Preserve exception context when re-raising errors.
+
+## Security
+
+- Treat all external input as untrusted.
+- Never hardcode secrets, credentials, tokens, or API keys.
+- Store configuration in environment variables.
+- Never log sensitive information.
+- Sanitize and validate user input.
+- Apply least-privilege access principles.
+
+## Reliability
+
+- Use structured logging with useful contextual information.
+- Log failures, retries, and important business events.
+- Implement retries with exponential backoff for transient external failures.
+- Add reasonable request timeouts for external calls.
+- Use rate limiting for public API endpoints when applicable.
+- Design operations to be idempotent when possible.
+
+## Async & Concurrency
+
+- Use async/await for I/O-bound operations.
+- Avoid blocking operations inside async code.
+- Use concurrency only when it provides measurable benefit.
+- Use batching for bulk operations when appropriate.
+- Use background tasks or threading only for non-blocking workloads.
+
+## Database & External Services
+
+- Keep database access isolated behind repository/service layers.
+- Use transactions where required for consistency.
+- Retry transient database and external API failures.
+- Avoid unnecessary queries and network calls.
+- Ensure resources are properly cleaned up using context managers.
+
+## Observability
+
+- Use structured logs instead of print statements.
+- Include request identifiers and relevant context in logs.
+- Make failures easy to diagnose.
+- Surface meaningful metrics where practical.
+
+## Testing
+
+- Write code that is easy to test.
+- Design components with dependency injection to support mocking.
+- Cover happy paths, edge cases, and failure scenarios.
+
+## Avoid
+
+- Silent failures
+- Bare except blocks
+- Hardcoded configuration
+- Global mutable state
+- God classes or large functions
+- Copy-pasted logic
+- Premature optimization
+- Premature abstraction
+- Unnecessary complexity
