@@ -13,33 +13,44 @@ function App() {
   })
 
   return (
-    <div className="mx-auto flex h-svh max-w-6xl flex-col gap-3 overflow-hidden p-4">
-      <header className="shrink-0">
-        <h1 className="text-xl font-semibold tracking-tight">
-          Engineering Impact Dashboard
-        </h1>
-        <p className="text-xs text-muted-foreground">
-          PostHog contributor metrics · last 90 days · scores normalized (0.5 = average)
-        </p>
-      </header>
+    <div className="relative flex h-svh overflow-hidden bg-background">
+      <div
+        aria-hidden
+        className="signal-rail absolute inset-y-0 left-0 w-px opacity-60"
+      />
 
-      <main className="min-h-0 flex-1 overflow-y-auto">
-        {isLoading ? <MetricsLoading /> : null}
+      <div className="mx-auto flex min-w-0 flex-1 flex-col gap-5 overflow-hidden px-6 py-5 pl-7">
+        <header className="shrink-0">
+          <p className="font-mono text-[10px] tracking-[0.16em] text-accent uppercase">
+            PostHog · 120 days
+          </p>
+          <h1 className="font-heading mt-1 text-2xl leading-tight font-medium tracking-tight">
+            Engineering Impact
+          </h1>
+          <p className="mt-1 max-w-lg text-xs leading-relaxed text-muted-foreground">
+            Normalized contributor scores — 0.5 represents the team average across all
+            categories.
+          </p>
+        </header>
 
-        {isError ? (
-          <Alert variant="destructive">
-            <AlertCircleIcon />
-            <AlertTitle>Unable to load metrics</AlertTitle>
-            <AlertDescription>
-              {error instanceof Error
-                ? error.message
-                : "An unexpected error occurred. Check that the backend is running and data has been ingested."}
-            </AlertDescription>
-          </Alert>
-        ) : null}
+        <main className="min-h-0 flex-1 overflow-y-auto">
+          {isLoading ? <MetricsLoading /> : null}
 
-        {data ? <Dashboard data={data} /> : null}
-      </main>
+          {isError ? (
+            <Alert variant="destructive" className="max-w-lg">
+              <AlertCircleIcon />
+              <AlertTitle>Unable to load metrics</AlertTitle>
+              <AlertDescription>
+                {error instanceof Error
+                  ? error.message
+                  : "An unexpected error occurred. Check that the backend is running and data has been ingested."}
+              </AlertDescription>
+            </Alert>
+          ) : null}
+
+          {data ? <Dashboard data={data} /> : null}
+        </main>
+      </div>
     </div>
   )
 }
