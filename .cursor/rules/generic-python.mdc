@@ -26,12 +26,12 @@ alwaysApply: true
 ## GitHub Data Ingestion
 
 - Decouple ingestion from the dashboard API: run GitHub fetching as a one-time or background ingest job (CLI/script); the dashboard API reads **only from Postgres**, never live GitHub on page load.
-- Use **local git** (repo clone) for commit-level metrics (line changes, reverts, merged change retention); use GitHub REST/GraphQL for PRs, issues, reviews, and comments.
-- Batch and paginate all GitHub calls; prefer GraphQL to avoid N+1 REST requests per PR or commit.
-- Store raw fetched entities (commits metadata, PRs, issues, reviews, comments) in Postgres before computing scores; recompute metrics from DB, not live GitHub.
+- Use **GitHub REST/GraphQL only** (no local repo clone); metrics are PR/issue-based per `plans/metric_definitions_v1.md`.
+- Batch and paginate all GitHub calls; prefer GraphQL to fetch merged PRs with additions/deletions, files, reviews, and linked issues in minimal queries.
+- **Never** make per-commit API calls; avoid N+1 REST requests per PR during ingest — fetch PR files and reviews in batched GraphQL pages.
+- Store raw fetched entities (PRs, issues, reviews, comments, PR file lists) in Postgres before computing scores; recompute metrics from DB, not live GitHub.
 - Respect rate limits: track `X-RateLimit-Remaining`, retry with exponential backoff on 403/429, log quota usage; fail ingest clearly rather than returning silently partial data.
 - First ingest may take minutes; dashboard reads must stay fast via cached/computed results.
-- If a metric exceeds the time budget, ship a documented approximation rather than blocking the dashboard. Highest-cost metrics: **Issue rate** and **PR acceptance rate** (need per-PR/issue linking; batch via GraphQL where possible). **Code line changes** and **Merged Change Retention Rate** use local git (`--numstat`).
 
 ## Core Principles
 
