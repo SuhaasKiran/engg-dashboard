@@ -123,7 +123,7 @@ CATEGORY_DEFINITIONS = {
     "overall": {
         "name": "Overall",
         "definition": "Equal-weighted combination of normalized Quantity, Quality, and Collaboration scores.",
-        "interpretation": "Composite impact score where 50 represents an average contributor across all categories.",
+        "interpretation": "Composite impact score: shows the overall leaderboard for contributions in all 3 categories.",
     },
 }
 
