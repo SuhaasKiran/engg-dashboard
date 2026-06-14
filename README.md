@@ -43,7 +43,7 @@ Impact is measured across **three categories**, each capturing a different dimen
 | **Collaboration** | Team engagement and follow-through | Reviews given, issues closed, peer comments, review responsiveness |
 
 **Scoring:**
-- Category and Overall leaderboards use **normalized scores on a 0–100 scale**, where **50 = average contributor**.
+- Category and Overall leaderboards use **normalized scores on a 0–100 scale**.
 - Sub-metric breakdowns show **raw actual values** (counts, rates, hours) so leaders can validate findings.
 - Lower-is-better metrics (revert rate, bug rate, review responsiveness) are inverted before normalization.
 
@@ -77,7 +77,7 @@ Ingestion respects GitHub rate limits (tracks `X-RateLimit-Remaining`, retries w
 Reads all raw entities from Postgres and computes per-contributor metric values:
 
 1. **Raw values** — calculated per contributor for all 11 sub-metrics (e.g. sum of PR lines, revert rate, median response hours).
-2. **Normalization** — each sub-metric is normalized so the mean contributor scores 0.5 (displayed as 50/100). Lower-is-better metrics are inverted first.
+2. **Normalization** — each sub-metric is normalized in 0-100 scale. Lower-is-better metrics are inverted first.
 3. **Category scores** — equal-weighted average of normalized sub-metric scores within each category.
 4. **Overall score** — equal-weighted average of the three category scores.
 5. **Leaderboards** — top 5 contributors + average row built for each view.
@@ -133,7 +133,7 @@ Each leaderboard shows the **top 5 contributors** plus an **Average** row at the
 | **Pre-computed JSON file** | Guarantees `<10s` dashboard load; no live GitHub calls on page view |
 | **PR/issue-based metrics (not commit-based)** | Avoids expensive per-commit API calls; PostHog uses squash merges so PRs are the meaningful unit of work |
 | **Composite scoring over raw counts** | A single LOC or commit count does not define impact; multi-dimensional view is more meaningful |
-| **Normalized 0–100 scale with avg = 50** | Makes scores interpretable at a glance for a busy engineering leader |
+| **Normalized 0–100 scale** | Makes scores interpretable at a glance for a busy engineering leader |
 | **Raw values in sub-metric breakdowns** | Allows validation — leaders can see *why* someone ranked highly, not just a number |
 | **Equal weights** | Simple, transparent, no hidden assumptions about category importance |
 | **GraphQL-first ingest** | Batches PR metadata, files, and reviews in minimal queries |
