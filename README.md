@@ -49,6 +49,8 @@ Impact is measured across **three categories**, each capturing a different dimen
 
 For full definitions and interpretations of each sub-metric, see [`plans/metric_definitions_v1.md`](plans/metric_definitions_v1.md).
 
+Note: The original metric definitions created are present in [`plans/metric_definitions_v0.md`](plans/metric_definitions_v0.md). The metric definitions were changed to make them more feasible and cheap for fetching via Github API.
+
 ### Approach
 
 The pipeline has three independent stages:
